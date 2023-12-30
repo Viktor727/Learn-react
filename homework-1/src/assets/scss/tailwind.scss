@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.title{
+    font-size: 2rem;
+    line-height: 2.5rem;
+    @apply font-bold;
+}
+
+.table{
+    @apply border;
+    max-width: 400px;
+    border-color: black;
+
+    tr:not(.border-b-imp){
+        @apply w-full m-0 border-0;
+        border: 0 !important;
+    }
+
+    td{
+        @apply p-4;
+    }
+
+    .table__brand{
+        td{
+            background-color: #4051B5;
+            @apply px-8 py-3 text-center border-b;
+            color: white;
+            border-color: black;
+        }
+    }
+
+    .table-cell__model{
+        background-color: #E91E63;
+        min-width: 100px;
+        @apply text-center border-r;
+        color: white;
+        border-color: black;
+
+    }
+}
+
+.border-b-imp{
+    border-bottom: 1px solid black !important;
+}
