@@ -134,57 +134,64 @@ export default function TablePrimary(props){
                     <tr className="table__brand">
                       <td colSpan="2">{car.brand}</td>
                     </tr>
-                    {car.models.map((models, indexSecond) => (
-                      <React.Fragment key={indexSecond}>
-                        <tr>
-                          <td rowSpan="2" className="table-cell__model">
-                            {models.name}
-                          </td>
-                          <td>
-                            <ul>
-                              <ListTable
-                                title={"Version"}
-                                text={models.collection[0].version}
-                              ></ListTable>
-                              <ListTable
-                                title={"Year"}
-                                text={models.collection[0].year}
-                              ></ListTable>
-                              <ListTable
-                                title={"Horsepower"}
-                                text={models.collection[0].horsepower}
-                              ></ListTable>
-                              <ListTable
-                                title={"Engine"}
-                                text={models.collection[0].engine}
-                              ></ListTable>
-                            </ul>
-                          </td>
-                        </tr>
-                        <tr className="border-b-imp">
-                          <td>
-                            <ul>
-                              <ListTable
-                                title={"Version"}
-                                text={models.collection[1].version}
-                              ></ListTable>
-                              <ListTable
-                                title={"Year"}
-                                text={models.collection[1].year}
-                              ></ListTable>
-                              <ListTable
-                                title={"Horsepower"}
-                                text={models.collection[1].horsepower}
-                              ></ListTable>
-                              <ListTable
-                                title={"Engine"}
-                                text={models.collection[1].engine}
-                              ></ListTable>
-                            </ul>
-                          </td>
-                        </tr>
-                      </React.Fragment>
-                    ))}
+                    {car.models.map((models, indexSecond) =>
+                      models.collection.map((collection, indexThird) => (
+                        <React.Fragment key={indexSecond}>
+                          {indexThird % 2 === 0 ? (
+                            <tr>
+                              <td rowSpan="2" className="table-cell__model">
+                                {models.name}
+                              </td>
+                              <td>
+                                <ul>
+                                  <ListTable
+                                    title={"Version"}
+                                    text={models.collection[indexThird].version}
+                                  ></ListTable>
+                                  <ListTable
+                                    title={"Year"}
+                                    text={models.collection[indexThird].year}
+                                  ></ListTable>
+                                  <ListTable
+                                    title={"Horsepower"}
+                                    text={
+                                      models.collection[indexThird].horsepower
+                                    }
+                                  ></ListTable>
+                                  <ListTable
+                                    title={"Engine"}
+                                    text={models.collection[indexThird].engine}
+                                  ></ListTable>
+                                </ul>
+                              </td>
+                            </tr>
+                          ) : (
+                            <tr className="border-b-imp">
+                              <td>
+                                <ul>
+                                  <ListTable
+                                    title={"Version"}
+                                    text={models.collection[indexThird].version}
+                                  ></ListTable>
+                                  <ListTable
+                                    title={"Year"}
+                                    text={models.collection[indexThird].year}
+                                  ></ListTable>
+                                  <ListTable
+                                    title={"Horsepower"}
+                                    text={models.collection[indexThird].horsepower}
+                                  ></ListTable>
+                                  <ListTable
+                                    title={"Engine"}
+                                    text={models.collection[indexThird].engine}
+                                  ></ListTable>
+                                </ul>
+                              </td>
+                            </tr>
+                          )}
+                        </React.Fragment>
+                      ))
+                    )}
                   </React.Fragment>
                 ))}
               </tbody>
