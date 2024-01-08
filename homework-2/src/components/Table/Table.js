@@ -53,6 +53,7 @@ class Table extends Component {
 
    if (this.state.animals.every((animal) => animal.selected)) {
      console.log("ALL animals are selected!");
+     clearTimeout(this.timeoutId);
      return ESelected.All;
     } else if (animals.filter((animal) => animal.selected).length >= threshold) {
       console.log("At least half of the animals are selected!");
