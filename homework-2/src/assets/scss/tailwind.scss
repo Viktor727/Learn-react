@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.title{
+    font-size: 2rem;
+    line-height: 2.5rem;
+    @apply font-bold;
+}
+
+.selected{
+    color: greenyellow;
+    font-weight: bold;
+
+    td{
+        color: greenyellow;
+        font-weight: bold;
+    }
+}
+
+.table{
+    transition: all 0.25s linear;
+    
+    &.active-half{
+        border: 10px solid rgba(229, 231, 235, 1) !important;
+    }  
+    
+    &.active-all{
+        border: 20px solid rgba(229, 231, 235, 1) !important;
+    }
+}
+
