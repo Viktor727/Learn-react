@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, ChangeEvent } from "react";
+import React, { useEffect, useState, useRef, ChangeEvent, memo, useCallback } from "react";
 
 import Tables from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -16,7 +16,7 @@ import {fetchDataList, fetchDataListDelete, fetchDataListUpdate} from "../../ser
 import List from "../../constants/interfaces.js";
 
 // {title: string, completed: boolean}
-const Table = (props) => {
+const Table = memo((props) => {
   const [data, setData] = useState<Array<List>>([]);
   const input = useRef<HTMLInputElement | null>(null);
   
@@ -80,13 +80,13 @@ const Table = (props) => {
     }
   };
 
-  const inputChange = (event: ChangeEvent<HTMLInputElement>, key: number) => {
+  const inputChange = useCallback((event: ChangeEvent<HTMLInputElement>, key: number) => {
     console.log(event.currentTarget.value);
     const newData = [...data];
     newData[key].title = event.currentTarget.value;
     console.log(newData);
     setData(newData);
-  };
+  }, [data]);
 
   return (
     <>
@@ -157,6 +157,6 @@ const Table = (props) => {
       </TableContainer>
     </>
   );
-};
+});
 
 export default Table;

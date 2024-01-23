@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { fetchDataListCreate } from "../../services/services";
 
 import { Input, Button } from "@mui/material";
@@ -15,9 +15,9 @@ function AddTableRow(props) {
     });
   }
 
-  const handlerChange = (event) => {
+  const handlerChange = useCallback((event) => {
     props.setInput(event.target.value);
-  };
+  }, [props.input]);
 
   return (
     <>

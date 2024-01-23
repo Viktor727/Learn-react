@@ -1,4 +1,5 @@
 import List from "../constants/interfaces.js";
+
 // +
 export async function fetchDataList(link: string) {
   try {
@@ -40,6 +41,7 @@ export async function fetchDataListDelete(link: string) {
     return null;
   });
 }
+
 // +
 export async function fetchDataListUpdate(link: string, data: List) {
   await fetch(link, {
@@ -62,6 +64,7 @@ export async function fetchDataListUpdate(link: string, data: List) {
   });
 }
 
+// +
 export async function fetchDataListCreate(link: string, newTask: {title: string, completed: boolean}) {
   await fetch(link, {
     method: "POST",
