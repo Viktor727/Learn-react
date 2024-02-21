@@ -13,7 +13,8 @@ function App({ children, title }) {
 
   useEffect(() => {
     fetchDataCountries().then((dataFetch) => {
-      if (dataFetch !== null) {
+      if (dataFetch !== null && dataFetch[0] !== undefined) {
+        console.log("it is this one problem", dataFetch);
         console.log("Data:", dataFetch);
         dispatch(setCountries(dataFetch));
       } else {
