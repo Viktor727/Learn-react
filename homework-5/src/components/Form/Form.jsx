@@ -34,8 +34,10 @@ function Form() {
     const translObjKeysZero = translObjKeys[0] || 'en';
 
     useEffect(() => {
-      dispatch(setCapital(countries[0].capital[0]));
-      dispatch(setTranslation(Object.keys(countries[0].translations)[0]));
+      if(countries[0]){
+        dispatch(setCapital(countries[0].capital[0]));
+        dispatch(setTranslation(Object.keys(countries[0].translations)[0]));
+      }
     }, [countries, dispatch]);
 
     useEffect(() => {
